@@ -35,9 +35,9 @@ public class Mapa {
         this.nodo_actual = nodo_actual;
     }
     /*Metodos*/
-    public void verMapa(SortedSet<Edge> edges) {
+    public void verMapa(SortedSet<Edge> nodo) {
         String grafo="";
-        for (Edge e : edges) {
+        for (Edge e : nodo) {
             /*System.out.printf("%d->%d;\n", e.x, e.y);*/
             grafo+=e.x+"->"+e.y+";";
         }
@@ -48,4 +48,10 @@ public class Mapa {
         
     }
 
+    @Override
+    public String toString() {
+        return "Mapa [profundidad=" + profundidad + ", nodo_inicial=" + nodo_inicial + ", nodo_actual=" + nodo_actual
+                + "]";
+    }
+    
 }
