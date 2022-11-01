@@ -1,0 +1,14 @@
+- Void combate en la clase Personaje 
+- Void avanzar en la clase Mapa
+- void interactuar en la clase NodoTienda
+- void comprar en la clase NodoTienda
+- void interactuar en la clase NodoCombate
+- void interactuar en la clase NodoJefeFinal
+- Settear que la vida actual no pueda ser mayor que la vida maxima
+
+
+
+Cambios y anotaciones respecto a la pauta.
+
+- Metodo VerMapa en clase Mapa requiere del SortedSet de edges ya que esta funcion tambien se ocupa en el main para otros procesos
+

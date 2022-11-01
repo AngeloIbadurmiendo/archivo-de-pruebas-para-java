@@ -30,7 +30,7 @@ public abstract class Nodo {
     public abstract void interactuar(Jugador jugador);
 
     public void agregarNodo(Nodo nodo){
-        
+        this.siguientes_nodos.add(nodo);
     }
 
     @Override

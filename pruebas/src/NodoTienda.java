@@ -9,7 +9,7 @@ public class NodoTienda extends Nodo {
 
     public NodoTienda(int id, ArrayList<Nodo> signodos, ArrayList<Item> inventario) {
         super(id, signodos);
-        this.inventario = inventario;
+        this.inventario = new ArrayList<>();
     }
 
     /*Getters y Setters */
@@ -18,6 +18,12 @@ public class NodoTienda extends Nodo {
     }
     public void setInventario(ArrayList<Item> inventario) {
         this.inventario = inventario;
+    }
+    
+
+    @Override
+    public String toString() {
+        return "NodoTienda [inventario=" + inventario + "]";
     }
 
     /*metodos*/
