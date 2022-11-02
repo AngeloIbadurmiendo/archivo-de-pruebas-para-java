@@ -1,3 +1,12 @@
 ## Getting Started
+Estudiante:
+Nombre = Angelo Ibaceta
+Rol = 202073019-9
 
-- Metodo VerMapa en clase Mapa requiere del SortedSet de edges ya que esta funcion tambien se ocupa en el main para otros procesos
+Instruccion del MakeFile y ejecucion:
+Para ejecutar el makefile es necesario tener el terminal en la carpeta src y el archivo makefile debe ser ejecutado dentro de esta.
+Para ejecutar el programa se debe usar el comando javac JavaQuest.java
+
+Intrucciones del programa y suposiciones:
+Se asume que no se entregaran datos incorrectos a los que se piden o datos que no corresponden.
+
