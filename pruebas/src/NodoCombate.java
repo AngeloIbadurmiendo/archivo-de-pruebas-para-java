@@ -24,15 +24,18 @@ public class NodoCombate extends Nodo {
     public void interactuar(Jugador jugador){
         System.out.println("Comienza el combate contra "+enemigo.GetName()+"\n");
         Random rndm = new Random();
-        while (jugador.GetHpActual() > 0 && enemigo.GetHpActual() > 0) {
+        Personaje enemigo_temporal= new Personaje(enemigo.GetName(), enemigo.GetDinero(), enemigo.GetHpActual(),enemigo.GetHpTotal(),enemigo.GetDamage(),enemigo.GetDefensa());
+        System.out.println("Vida inicial del enemigo "+enemigo.GetHpActual());
+        System.out.println("Vida inicial de "+jugador.GetName()+" "+jugador.GetHpActual());
+        while ((jugador.GetHpActual() > 0) && (enemigo_temporal.GetHpActual() > 0)) {
             int num = rndm.nextInt(1,3);
             if (num==1) {
-                jugador.combate(enemigo);
-            }else if(num==2){
-                enemigo.combate(jugador);
+                jugador.combate(enemigo_temporal);
+            }else{
+                enemigo_temporal.combate(jugador);
             }
             System.out.println("Actualizacion de combate:");
-            System.out.println("Vida restante del enemigo "+enemigo.GetHpActual());
+            System.out.println("Vida restante del enemigo "+enemigo_temporal.GetHpActual());
             System.out.println("Vida restante de "+jugador.GetName()+" "+jugador.GetHpActual());
         }
     }

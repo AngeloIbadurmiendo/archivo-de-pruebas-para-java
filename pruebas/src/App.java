@@ -115,10 +115,28 @@ public class App {
             }
         }
 
-
+        // gen_mapa.verMapa(edges);
+        // for (int z = 0; z < allEncounters.size(); z++) {
+        //     Nodo NodoAct=allEncounters.get(z);
+        //     ArrayList<Nodo> ids=NodoAct.getSiguientes_nodos();
+        //     for (int j = 0; j < ids.size(); j++) {
+        //         Nodo a=ids.get(j);
+        //         System.out.println(NodoAct.getId());
+        //         System.out.println(a.getId());
+        //         System.out.println(ids.get(j)+"\n");
+        //     }
+        // }
+         /*Codigo de prueba para verificar nodos siguientes*/
         /*---------------------------------------------------------------------------------------------------------------------- */
-        nodoinicial.interactuar(jugador1);
-        while (jugador1.GetHpActual() > 0 && jefe.GetHpActual()>0){
+        
+        allEncounters.get(0).interactuar(jugador1);
+        boolean flag=false;
+        while (!flag){
+            if (jugador1.GetHpActual() <= 0) {
+                flag=true;
+                System.out.println("\nJuego Terminado");
+                break;
+            }
             System.out.println("\nQue haras, "+jugador1.GetName()+"?");
             /*Menu*/
             System.out.println("--------------------------------------------------------");
@@ -157,13 +175,12 @@ public class App {
                     continue;
                 case 5:
                     System.out.println("Buena Eleccion!\n");
-                    break;
+                    System.exit(0);
             }
-            break;
         }
         /*Meter esto dentro del loop para terminar el juego si el jugador muere*/
         if (jugador1.GetHpActual()<=0) {
-            System.out.println("\nGame over");
+            System.out.println("\nHas perdido");
         }
     }
 }
@@ -186,12 +203,3 @@ public class App {
 
 
 
-        // for (int z = 0; z < allEncounters.size(); z++) {
-        //     Nodo NodoAct=allEncounters.get(z);
-        //     ArrayList<Nodo> ids=NodoAct.getSiguientes_nodos();
-        //     for (int j = 0; j < ids.size(); j++) {
-        //         Nodo a=ids.get(j);
-        //         System.out.println(NodoAct.getId());
-        //         System.out.println(a.getId());
-        //     }
-        // } /*Codigo de prueba para verificar nodos siguientes*/

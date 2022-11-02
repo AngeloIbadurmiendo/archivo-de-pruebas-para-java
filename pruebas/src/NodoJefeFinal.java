@@ -40,6 +40,7 @@ public class NodoJefeFinal extends Nodo {
             System.out.println("Vida restante de "+jugador.GetName()+" "+jugador.GetHpActual());
         if (jefe.GetHpActual() <= 0) {
             System.out.println("Felicidades, derrotaste al jefe y ganaste el juego");
+            System.exit(0);
         }
         }
     }

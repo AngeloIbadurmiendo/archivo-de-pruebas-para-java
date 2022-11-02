@@ -37,19 +37,37 @@ public class NodoTienda extends Nodo {
             System.out.println(this.inventario.get(i));
         }
         System.out.println("Ingresa 5 si no quieres comprar nada");
-        int money=jugador.GetDinero();
-        System.out.println("Actualmente tienes "+money);
-        System.out.println("Que compraras?.");
         Scanner sc = new Scanner(System.in);
-        int respuesta = sc.nextInt();
-        while (jugador.GetDinero() > 0 && respuesta != 5) {
+        Boolean flag = false;
+        while (!flag) {
+            int money=jugador.GetDinero();
+            System.out.println("Actualmente tienes "+money);
+            System.out.println("Que compraras?.");
+            int respuesta= sc.nextInt();
+            if (respuesta==5 || jugador.GetDinero() <= 0) {
+                flag=true;
+                System.out.println("Has salido de la tienda");
+                break;
+            }
             Item selectedItem= inventario.get((respuesta-1));
             if (selectedItem.getPrecio() > jugador.GetDinero()) {
                 System.out.println("No tienes dinero suficiente para comprar este item");
+                continue;
             }else{
                 this.comprar((respuesta-1), jugador);
+                continue;
             }
         }
+
+
+        // while (jugador.GetDinero() > 0 && respuesta != 5) {
+        //     Item selectedItem= inventario.get((respuesta-1));
+        //     if (selectedItem.getPrecio() > jugador.GetDinero()) {
+        //         System.out.println("No tienes dinero suficiente para comprar este item");
+        //     }else{
+        //         this.comprar((respuesta-1), jugador);
+        //     }
+        // }
 
     }
     public void comprar(Integer eleccion,Jugador player){
