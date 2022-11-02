@@ -16,7 +16,6 @@ public class JavaQuest {
         Item item7= new Item("SuperPocion", 100, 20, 0, 0, 0);
         Item item8= new Item("Pocion", 50, 10, 0, 0, 0);
         ArrayList<Item> items_tienda= new ArrayList<>(Arrays.asList(item1,item2,item3,item4,item5,item6,item7,item8));
-        Jugador jugador1= new Jugador("Angelo", 500, 20, 20, 5, 1, null);
         Personaje jefe = new Personaje("Gahlran", 0, 60, 60, 10, 0);
         //NodoEvento evento1= new NodoEvento(-1,null,"Llegaste al templo en el cielo, delante tuyo hay 2 estatuas, cada una con un destino diferente. Elige sabiamente!.","Estatua Divina del Cazador","Estatua Divina del Titan",item4,item6);
         //NodoEvento evento2= new NodoEvento(-1,null,"Llegaste a la isla del Curandero Loco, debes disparar a una de las dos vasijas que tienes delante para conseguir un item curativo.","Vasija de la izquierda","Vasija de la derecha",item3,item8);
@@ -32,6 +31,9 @@ public class JavaQuest {
         ArrayList<Personaje> enemigos = new ArrayList<>(Arrays.asList(enemy1,enemy2,enemy3,enemy4,enemy5));
 
         Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese el nombre de su personaje");
+        String nombre=sc.nextLine();
+        Jugador jugador1= new Jugador(nombre, 500, 20, 20, 5, 1, null);
         System.out.println("Ingrese la profundidad del mapa");
         int profundidad= sc.nextInt();
         /*Nodo inicial siempre sera id 0 por lo que se iniciara en el main*/
