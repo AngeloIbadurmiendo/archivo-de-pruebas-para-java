@@ -17,7 +17,7 @@ MAIN = main
 # $(wildcard *.java) -> todos los archivos .java que no estan en un directorio
 #
 # Se debe cambiar los contenidos de esta linea para que se adapten a la estructura de su proyecto
-JAVAS := $(wildcard estructuras/*.java) $(wildcard *.java)
+JAVAS := $(wildcard src/*.java) $(wildcard *.java)
 
 # CLASSES son los nombres de los archivos ya compilados, corresponde a los JAVAS pero remplazando el .java por .class
 CLASSES := $(JAVAS:.java=.class)
