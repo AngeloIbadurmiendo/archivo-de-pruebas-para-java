@@ -1,14 +1,5 @@
-- Void combate en la clase Personaje (listo pero falta testeo)
-- Void avanzar en la clase Mapa (Listo pero no testeado)
-- void interactuar en la clase NodoTienda (Casi lista pero afinar toques con un testeo)
-- void comprar en la clase NodoTienda (Casi lista pero afinar toques con un testeo)
-- void interactuar en la clase NodoCombate (listo pero no testeado)
-- void interactuar en la clase NodoJefeFinal (listo pero no testeado)
-- Settear que la vida actual no pueda ser mayor que la vida maxima (Listo pero sin testear)
-- Void aplicar en clase Item no esta completo (listo pero sin testeo)
-- settear todo el menu
-
-
+- Comentar funciones
+- Crear MakeFile y Readme
 
 Cambios y anotaciones respecto a la pauta.
 
