@@ -4,12 +4,13 @@
 - void comprar en la clase NodoTienda (Casi lista pero afinar toques con un testeo)
 - void interactuar en la clase NodoCombate (listo pero no testeado)
 - void interactuar en la clase NodoJefeFinal (listo pero no testeado)
-- Settear que la vida actual no pueda ser mayor que la vida maxima
-- Void aplicar en clase Item no esta completo (falta aplicar el item al personaje)
+- Settear que la vida actual no pueda ser mayor que la vida maxima (Listo pero sin testear)
+- Void aplicar en clase Item no esta completo (listo pero sin testeo)
+- settear todo el menu
 
 
 
 Cambios y anotaciones respecto a la pauta.
 
 - Metodo VerMapa en clase Mapa requiere del SortedSet de edges ya que esta funcion tambien se ocupa en el main para otros procesos
-- Agregado el parametro enemigo al metodo combate en la clase personaje 
+- Solo un jefe final

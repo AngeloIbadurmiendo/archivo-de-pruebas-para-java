@@ -25,10 +25,10 @@ public class NodoCombate extends Nodo {
         System.out.println("Comienza el combate contra "+enemigo.GetName()+"\n");
         Random rndm = new Random();
         while (jugador.GetHpActual() > 0 && enemigo.GetHpActual() > 0) {
-            int num = rndm.nextInt(1,2);
+            int num = rndm.nextInt(1,3);
             if (num==1) {
                 jugador.combate(enemigo);
-            } else {
+            }else if(num==2){
                 enemigo.combate(jugador);
             }
             System.out.println("Actualizacion de combate:");

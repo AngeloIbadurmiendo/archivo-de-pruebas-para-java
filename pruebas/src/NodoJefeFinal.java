@@ -29,7 +29,7 @@ public class NodoJefeFinal extends Nodo {
         System.out.println("Comienza el combate contra "+jefe.GetName()+"\n");
         Random rndm = new Random();
         while (jugador.GetHpActual() > 0 && jefe.GetHpActual() > 0) {
-            int num = rndm.nextInt(1,2);
+            int num = rndm.nextInt(1,3);
             if (num==1) {
                 jugador.combate(jefe);
             } else {
@@ -38,6 +38,9 @@ public class NodoJefeFinal extends Nodo {
             System.out.println("Actualizacion de combate:");
             System.out.println("Vida restante del jefe "+jefe.GetHpActual());
             System.out.println("Vida restante de "+jugador.GetName()+" "+jugador.GetHpActual());
+        if (jefe.GetHpActual() <= 0) {
+            System.out.println("Felicidades, derrotaste al jefe y ganaste el juego");
+        }
         }
     }
 }

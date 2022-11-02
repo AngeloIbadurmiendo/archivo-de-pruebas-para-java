@@ -46,7 +46,7 @@ public class Mapa {
         String url=String.format("Copia el siguiente link para ver el mapa: http://mxwell.github.io/draw-graph/?q=digraph{%s}",grafo);
         System.out.println(url);
     }
-    public void avanzar(Jugador player) {
+    public void avanzar() {
         Nodo node=this.nodo_actual;
         ArrayList<Nodo> sigs= node.getSiguientes_nodos();
         for (int index = 0; index < sigs.size(); index++) {
@@ -56,7 +56,12 @@ public class Mapa {
         Scanner sc= new Scanner(System.in);
         System.out.println("Ingrese el nodo al que le gustaria avanzar");
         int respuesta = sc.nextInt();
-        setNodo_actual(sigs.get(respuesta));
+        for (int i = 0; i < sigs.size(); i++) {
+            int ids= sigs.get(i).getId();
+            if (ids == respuesta) {
+                this.setNodo_actual(sigs.get(i));
+            }
+        }
     }
 
     @Override

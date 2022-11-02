@@ -64,10 +64,29 @@ public class Item {
                 this.recuperar_hp+"\n"+"Aumento de HP maxima: "+this.aumentar_hp_total+"\n"+"Aumento de daño: "+
                 this.aumentar_damage+"\n"+"Aumento de defensa: "+this.aumentar_defensa+"\n";
     }
-    public void aplicar(Jugador Player){
+    /*Obtiene las estadisticas actuales del jugador y le aplica las estadisticas del item, luego agrega el item a la lista
+    de items aplicados del jugador */
+    public void aplicar(Jugador jugador){
+        int hpAct = jugador.GetHpActual();
+        int hpMax = jugador.GetHpTotal();
+        int dmg= jugador.GetDamage();
+        int def=jugador.GetDefensa();
+        hpMax += this.aumentar_hp_total;
+        hpAct += this.recuperar_hp;
+        if (hpAct > hpMax) {
+            hpAct = hpMax;
+        }
+        dmg += this.aumentar_damage;
+        def+= this.aumentar_defensa;
+        jugador.SetHpTotal(hpMax);
+        jugador.SetHpActual(hpAct);
+        jugador.SetDamage(dmg);
+        jugador.SetDefensa(def);
+
         ArrayList<Item> NuevaLista;
-        NuevaLista=Player.GetItems();
+        NuevaLista=jugador.GetItems();
         NuevaLista.add(this);
-        Player.SetItems(NuevaLista);
+        jugador.SetItems(NuevaLista);
+        System.out.println("Item Aplicado");
     }
 }
