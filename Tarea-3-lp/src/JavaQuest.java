@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.SortedSet;
-public class App {
+public class JavaQuest {
     public static void main(String[] args) throws Exception {
         Item item1= new Item("Peluca", 40, 3, 1, 1, 1);
         Item item2= new Item("Piedra Trueno", 50, 5, 1, 2, 0);
@@ -62,9 +62,10 @@ public class App {
         ArrayList<Nodo> allEncounters= new ArrayList<>();
         for (int i = 1; i <= encuentros.size(); i++) {
             double random = Math.random();
+            /*Se elige uno de los 3 eventos disponibles, se crea el nodo y se agrega a la lista*/
             if(random<0.3){//Evento
                 Random rndm=new Random();
-                int num=rndm.nextInt(0,2);
+                int num=rndm.nextInt(0,3);
                 switch (num) {
                     case 0:
                         NodoEvento event = new NodoEvento(i, null, descripciones.get(0), alternativas.get(0), alternativas.get(1), item4, item6);
@@ -80,11 +81,12 @@ public class App {
                         break;
                 }       
             }
+            /*Cada tienda tendra un maximo de 4 items (pueden ser menos en caso de que se repita a la hora de la seleccion de items para cada tienda) */
             else if(random<0.4){//Tienda
                 Set<Item> itemsSinRepetir = new HashSet<>();
                 for (int cont = 0; cont < 4; cont++) {
                     Random rndm=new Random();
-                    int num=rndm.nextInt(0,7);
+                    int num=rndm.nextInt(0,8);
                     Item tienda=items_tienda.get(num);
                     itemsSinRepetir.add(tienda);
                 }
@@ -93,9 +95,10 @@ public class App {
                 encuentro_tienda.setInventario(items_rndm);
                 allEncounters.add(encuentro_tienda);
             }
+            /*Se elige un enemigo de la lista de enemigos y se crea el nodo combate, posterior a eso se agrega el nodo a la lista */
             else{//Combate
                 Random rndm=new Random();
-                int num=rndm.nextInt(0,4);
+                int num=rndm.nextInt(0,5);
                 Personaje enemy=enemigos.get(num);
                 NodoCombate combat = new NodoCombate(i, null, enemy);
                 allEncounters.add(combat);
@@ -104,7 +107,6 @@ public class App {
         /*Generar todas las listas de nodos posibles a los cuales se puede ir a partir de un nodo actual*/
         allEncounters.add(nodo_boss);
         allEncounters.add(0,nodoinicial);
-
         for (int t = 0; t < allEncounters.size(); t++) {
             Nodo NodoAct=allEncounters.get(t);
             int idNodo= NodoAct.getId();
@@ -115,21 +117,12 @@ public class App {
             }
         }
 
-        // gen_mapa.verMapa(edges);
-        // for (int z = 0; z < allEncounters.size(); z++) {
-        //     Nodo NodoAct=allEncounters.get(z);
-        //     ArrayList<Nodo> ids=NodoAct.getSiguientes_nodos();
-        //     for (int j = 0; j < ids.size(); j++) {
-        //         Nodo a=ids.get(j);
-        //         System.out.println(NodoAct.getId());
-        //         System.out.println(a.getId());
-        //         System.out.println(ids.get(j)+"\n");
-        //     }
-        // }
-         /*Codigo de prueba para verificar nodos siguientes*/
-        /*---------------------------------------------------------------------------------------------------------------------- */
-        
+        /*--------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+
+        /*Comienza el juego interactuando con el nodo incial donde se da una pequena introduccion al juego*/
         allEncounters.get(0).interactuar(jugador1);
+        /*Menu de interaccion para las opciones del usuario donde cada iteracion se verifica la vida del usuario para ver si continua el juego o no*/
         boolean flag=false;
         while (!flag){
             if (jugador1.GetHpActual() <= 0) {
@@ -178,7 +171,7 @@ public class App {
                     System.exit(0);
             }
         }
-        /*Meter esto dentro del loop para terminar el juego si el jugador muere*/
+        
         if (jugador1.GetHpActual()<=0) {
             System.out.println("\nHas perdido");
         }

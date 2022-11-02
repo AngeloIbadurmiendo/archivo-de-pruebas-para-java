@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch JavaQuest",
+            "request": "launch",
+            "mainClass": "JavaQuest",
+            "projectName": "archivo-de-pruebas-para-java_d9710fcb"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"
