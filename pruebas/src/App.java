@@ -44,7 +44,7 @@ public class App {
         Mapa gen_mapa= new Mapa(profundidad, nodoinicial, nodoactual);
         gen_mapa.verMapa(edges);
         
-        
+        /*Meter esto dentro del loop para terminar el juego si el jugador muere*/
         if (jugador1.GetHpActual()<=0) {
             System.out.println("Game over");
         }

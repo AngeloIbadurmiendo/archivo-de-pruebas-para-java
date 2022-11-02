@@ -72,7 +72,15 @@ public class Personaje {
 
 
     /*Metodos*/
-    public void combate(String personaje) {
-        
+    public void combate(Personaje contrincante) {
+        int vidaContrincante=contrincante.GetHpActual();
+        int dmgAtacante=this.damage;
+        int defensaContrincante=contrincante.GetDefensa();
+        int newHPE= vidaContrincante-(dmgAtacante-defensaContrincante);
+        if (dmgAtacante-defensaContrincante <=0) {
+            contrincante.SetHpActual(vidaContrincante);
+        }else{
+            contrincante.SetHpActual(newHPE);
+        }
     }
 }

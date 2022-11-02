@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.SortedSet;
 
 public class Mapa {
@@ -44,8 +46,17 @@ public class Mapa {
         String url=String.format("Copia el siguiente link para ver el mapa: http://mxwell.github.io/draw-graph/?q=digraph{%s}",grafo);
         System.out.println(url);
     }
-    public void avanzar() {
-        
+    public void avanzar(Jugador player) {
+        Nodo node=this.nodo_actual;
+        ArrayList<Nodo> sigs= node.getSiguientes_nodos();
+        for (int index = 0; index < sigs.size(); index++) {
+            Nodo next=sigs.get(index);
+            System.out.println("Puedes avanzar al encuentro "+next.getId());
+        }
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Ingrese el nodo al que le gustaria avanzar");
+        int respuesta = sc.nextInt();
+        setNodo_actual(sigs.get(respuesta));
     }
 
     @Override
